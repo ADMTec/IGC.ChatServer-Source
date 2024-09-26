@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x64</Platform>
+    <ProjectGuid>{136BEB27-4CD7-4132-9DEA-673978FCFE87}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>IGC.ChatServer</RootNamespace>
+    <AssemblyName>IGC.ChatServer</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>IGC.ChatServer.ico</ApplicationIcon>
+    <StartupObject>ChatServer.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Authenticator\Cipher.cs" />
+    <Compile Include="Authenticator\EventLogManager.cs" />
+    <Compile Include="Authenticator\Kernel32.cs" />
+    <Compile Include="Authenticator\Main.cs" />
+    <Compile Include="Authenticator\Models\INoLicenseForm.cs" />
+    <Compile Include="Authenticator\Network\Client.cs" />
+    <Compile Include="Authenticator\Network\Packet.cs" />
+    <Compile Include="Authenticator\Network\PacketManager.cs" />
+    <Compile Include="Authenticator\Network\Protocol.cs" />
+    <Compile Include="Authenticator\ToolIDs.cs" />
+    <Compile Include="ChatServer\ChatManager.cs" />
+    <Compile Include="ChatServer\ChatServerProtocol.cs" />
+    <Compile Include="ChatServer\Configs.cs" />
+    <Compile Include="ChatServer\Crypt.cs" />
+    <Compile Include="ChatServer\Database.cs" />
+    <Compile Include="ChatServer\ExDBProtocol.cs" />
+    <Compile Include="ChatServer\Extensions.cs" />
+    <Compile Include="ChatServer\Form_ChatConversation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChatServer\Form_ChatConversation.Designer.cs">
+      <DependentUpon>Form_ChatConversation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChatServer\Form_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChatServer\Form_Main.Designer.cs">
+      <DependentUpon>Form_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChatServer\Form_NoLicenseFound.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChatServer\Form_NoLicenseFound.Designer.cs">
+      <DependentUpon>Form_NoLicenseFound.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChatServer\IOCP.cs" />
+    <Compile Include="ChatServer\Kernel32.cs" />
+    <Compile Include="ChatServer\Language.cs" />
+    <Compile Include="ChatServer\Models\ChatMember.cs" />
+    <Compile Include="ChatServer\Models\ChatRoom.cs" />
+    <Compile Include="ChatServer\Models\ChatTicket.cs" />
+    <Compile Include="ChatServer\PacketManager.cs" />
+    <Compile Include="ChatServer\Packets.cs" />
+    <Compile Include="ChatServer\PoolManager.cs" />
+    <Compile Include="ChatServer\Program.cs" />
+    <Compile Include="ChatServer\ProhibitedWords.cs" />
+    <Compile Include="ChatServer\Properties\Resources.cs" />
+    <Compile Include="ChatServer\Properties\Settings.Designer.cs">
+      <DependentUpon>Settings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="ChatServer\SQL.cs" />
+    <Compile Include="Dumper.cs" />
+    <Compile Include="IniParser\Exceptions\ParsingException.cs" />
+    <Compile Include="IniParser\FileIniDataParser.cs" />
+    <Compile Include="IniParser\Helpers\Assert.cs" />
+    <Compile Include="IniParser\Model\Configuration\ConcatenateDuplicatedKeysIniParserConfiguration.cs" />
+    <Compile Include="IniParser\Model\Configuration\DefaultIniParserConfiguration.cs" />
+    <Compile Include="IniParser\Model\Configuration\IniParserConfiguration.cs" />
+    <Compile Include="IniParser\Model\Formatting\DefaultIniDataFormatter.cs" />
+    <Compile Include="IniParser\Model\Formatting\IIniDataFormatter.cs" />
+    <Compile Include="IniParser\Model\IniData.cs" />
+    <Compile Include="IniParser\Model\IniDataCaseInsensitive.cs" />
+    <Compile Include="IniParser\Model\KeyData.cs" />
+    <Compile Include="IniParser\Model\KeyDataCollection.cs" />
+    <Compile Include="IniParser\Model\SectionData.cs" />
+    <Compile Include="IniParser\Model\SectionDataCollection.cs" />
+    <Compile Include="IniParser\Parser\ConcatenateDuplicatedKeysIniDataParser.cs" />
+    <Compile Include="IniParser\Parser\IniDataParser.cs" />
+    <Compile Include="IniParser\StreamIniDataParser.cs" />
+    <Compile Include="IniParser\StringIniParser.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sLicenseFeatures.cs" />
+    <Compile Include="SystemTime.cs" />
+    <Compile Include="ToolsAuthServer\Models\ErrorCodes.cs" />
+    <Compile Include="Utilities\Network\IOCPConnection.cs" />
+    <Compile Include="Utilities\Network\IOCPListener.cs" />
+    <Compile Include="Utilities\Network\IOCPManager.cs" />
+    <Compile Include="WinlicenseSDK.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ChatServer\Form_ChatConversation.resources" />
+    <EmbeddedResource Include="ChatServer\Form_Main.resources" />
+    <EmbeddedResource Include="ChatServer\Form_Main.resx">
+      <DependentUpon>Form_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChatServer\Form_NoLicenseFound.resources" />
+    <EmbeddedResource Include="ChatServer\Properties\Resources.resources" />
+    <EmbeddedResource Include="ChatServer\Properties\Resources1.resources" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.manifest" />
+    <None Include="ChatServer\Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
